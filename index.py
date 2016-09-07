@@ -67,5 +67,23 @@ class StateMachine:
 			self.reset_events.append(e)
 
 
+class Controller:
+
+	def __init__(self):
+		self.commands_channel = None
+		self.current_state = None
+		self.machine = None
+
+	def handle(self, event_code):
+		if current_state.has_transition(event_code):
+			self.transition_to(current_state.target_state(event_code))
+		else:
+			self.transition_to(self.machine.get_start())
+
+	def transition_to(self, target):
+		self.current_state = target
+		self.current_state.execute_actions(commands_channel)
+
+
 if __name__ == '__main__':
 	print('Hello')

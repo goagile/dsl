@@ -6,7 +6,7 @@ from index import (
 	Transition,
 	StateMachine,
 	State,
-
+	Controller,
 )
 
 
@@ -55,9 +55,21 @@ class TestCase(unittest.TestCase):
 	def test_machine(self):
 		start = State('s1')
 		sm = StateMachine(start)
-		states = sm.get_states()
 		
-		self.assertEquals([], states)
+		states = sm.get_states()
+		self.assertEquals(1, len(states))
+		self.assertIn(start, states)
+
+
+class TestController(unittest.TestCase):
+
+	def test_(self):
+		c = Controller()
+		target = State('s1')
+
+		self.assertTrue(c)
+		c.transition_to(target)
+		self.assertEquals(target, c.current_state)
 
 
 if __name__ == '__main__':
