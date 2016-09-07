@@ -63,7 +63,7 @@ class TestCase(unittest.TestCase):
 
 class TestController(unittest.TestCase):
 
-	def test_(self):
+	def test_transition_to(self):
 		c = Controller()
 		target = State('s1')
 
@@ -71,6 +71,12 @@ class TestController(unittest.TestCase):
 		c.transition_to(target)
 		self.assertEquals(target, c.current_state)
 
+	def test_handle(self):
+		c = Controller()
+		target = State('state1')
+		event = Event('event1', 'e1')
+
+		c.handle('e1')
 
 if __name__ == '__main__':
 	unittest.main()

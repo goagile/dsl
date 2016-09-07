@@ -37,6 +37,12 @@ class State:
 		for c in self.actions:
 			commands_channel.send(c.code)
 
+	def has_transition(self, event_code):
+		return event_code in self.transitions
+
+	def target_state(self, event_code):
+		return self.transitions.get(event_code).target
+
 
 class Transition:
 
@@ -70,6 +76,15 @@ class StateMachine:
 		for e in events:
 			self.reset_events.append(e)
 
+	def is_reset_event(self, event_code):
+		return event_code in self.reset_event_codes()
+
+	def reset_event_codes(self):
+		result = []
+		for e in self.reset_events:
+			result.append(e.code)
+		return result
+
 
 class Controller:
 
@@ -81,7 +96,7 @@ class Controller:
 	def handle(self, event_code):
 		if current_state.has_transition(event_code):
 			self.transition_to(current_state.target_state(event_code))
-		else:
+		else if self.machine.is_reset_event(event_code):
 			self.transition_to(self.machine.get_start())
 
 	def transition_to(self, target):
