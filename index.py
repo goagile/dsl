@@ -33,6 +33,10 @@ class State:
 			result.append(self.transitions[key].target)
 		return result
 
+	def execute_actions(self, commands_channel):
+		for c in self.actions:
+			commands_channel.send(c.code)
+
 
 class Transition:
 
@@ -82,7 +86,7 @@ class Controller:
 
 	def transition_to(self, target):
 		self.current_state = target
-		self.current_state.execute_actions(commands_channel)
+		self.current_state.execute_actions(self.commands_channel)
 
 
 if __name__ == '__main__':
