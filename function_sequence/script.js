@@ -1,0 +1,11 @@
+computer();
+    processor();
+        cores(2);
+        speed(2500);
+        i386();
+    disk();
+        size(150);
+    disk();
+        size(75);
+        speed(7200);
+        sata();
