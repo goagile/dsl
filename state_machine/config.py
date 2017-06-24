@@ -1,21 +1,20 @@
-from index import (
-	Command,
-	Event,
-	State,
-	StateMachine,
+from examples.state_machine.index import (
+    Command,
+    Event,
+    State,
+    StateMachine,
 )
 
+door_closed = Event('door_closed', 'D1CL')
+drawer_opened = Event('drawer_opened', 'D2OP')
+light_on = Event('light_on', 'L1ON')
+door_opened = Event('door_opened', 'D1OP')
+panel_closed = Event('panel_closed', 'PNCL')
 
-door_closed = Event('door_closed', 		'D1CL')
-drawer_opened = Event('drawer_opened', 	'D2OP')
-light_on = Event('light_on', 			'L1ON')
-door_opened = Event('door_opened', 		'D1OP')
-panel_closed = Event('panel_closed', 	'PNCL')
-
-unlock_panel_cmd = Command('unlock_panel', 	'PNUL')
-lock_panel_cmd = Command('lock_panel', 		'PNLK')
-lock_door_cmd = Command('lock_door', 		'D1LK')
-unlock_door_cmd = Command('unlock_door', 	'D1UL')
+unlock_panel_cmd = Command('unlock_panel', 'PNUL')
+lock_panel_cmd = Command('lock_panel', 'PNLK')
+lock_door_cmd = Command('lock_door', 'D1LK')
+unlock_door_cmd = Command('unlock_door', 'D1UL')
 
 idle = State('idle')
 active_state = State('active')
