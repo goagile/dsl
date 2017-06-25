@@ -41,7 +41,9 @@ class PromotionConditionBuilder:
         found = self.__dict__.get(item, None)
         if found:
             return self.__getattribute__(item)
-        self.symbol = item.split('_')[1]
+        splitted = item.split('_')
+        method = splitted[0]
+        self.symbol = splitted[1]
         return self
 
     def __call__(self, value):
