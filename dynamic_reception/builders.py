@@ -1,6 +1,19 @@
-from examples.dynamic_reception.semantic_model.base import Route, Rule
+from examples.dynamic_reception.semantic_model.base import Route
 from examples.dynamic_reception.semantic_model.conditions import EqualityCondition
+from examples.dynamic_reception.semantic_model.route_items import Flight, Hotel
 from examples.dynamic_reception.semantic_model.rules import PromotionRule
+
+
+class RouteBuilder:
+
+    def __init__(self):
+        self.route = Route()
+
+    def add_flight(self, source, destination, airline):
+        self.route.add_item(Flight(source, destination, airline))
+
+    def add_hotel(self, nights, brand):
+        self.route.add_item(Hotel(nights, brand))
 
 
 class PromotionBuilder:
