@@ -1,6 +1,6 @@
 import unittest
 
-from examples.dynamic_reception.semantic_model.bonuses import PromotionRule
+from examples.dynamic_reception.semantic_model.rules import PromotionRule
 from examples.dynamic_reception.semantic_model.conditions import EqualityCondition
 from examples.dynamic_reception.semantic_model.route_items import Flight, Hotel
 from examples.dynamic_reception.semantic_model.base import Route
