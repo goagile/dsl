@@ -16,6 +16,44 @@ class RouteBuilder:
         self.route.add_item(Hotel(nights, brand))
 
 
+class MethodsChainPromotionBuilder:
+
+    def __init__(self):
+        self.rules = []
+
+    def total_score(self, route):
+        route.rules = self.rules
+        return route.score()
+
+    def score(self, value):
+        rule = PromotionRule(score=value)
+        self.rules.append(rule)
+        return MethodsChainPromotionConditionBuilder(rule)
+
+
+class MethodsChainPromotionConditionBuilder:
+
+    def __init__(self, rule: PromotionRule):
+        self.rule = rule
+        self._method_name = None
+        self._attr_name = None
+
+    def __getattr__(self, item):
+        found = self.__dict__.get(item, None)
+        if found:
+            return self.__getattribute__(item)
+        self.method_name = item
+        return self
+
+    def __call__(self, value):
+        if self._method_name == 'when':
+            self._attr_name = value
+        elif self._method_name == 'equal':
+            condition = EqualityCondition(self._attr_name, value)
+            self.rule.add_condition(condition)
+        return self
+
+
 class PromotionBuilder:
 
     def __init__(self):
