@@ -1,6 +1,6 @@
 import unittest
 
-from dsl_board.semantic_model.board import Board
+from examples.methods_chain.dsl_board.semantic_model.board import Board
 
 
 class TestBoard(unittest.TestCase):

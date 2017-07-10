@@ -1,6 +1,6 @@
-from dsl_board.registry.registry import register_class, from_registry
+from examples.methods_chain.dsl_board.registry.registry import register_class, from_registry
 
-from dsl_board.serializers.serializers import CompositeBoardElementSerializer, BoardElementSerializer
+from examples.methods_chain.dsl_board.serializers.serializers import CompositeBoardElementSerializer, BoardElementSerializer
 
 
 class BoardElementMeta(type):

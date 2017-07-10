@@ -1,5 +1,5 @@
-from dsl_board.semantic_model.base import CompositeBoardElement
-from dsl_board.semantic_model.swimlane import SwimLane
+from examples.methods_chain.dsl_board.semantic_model.base import CompositeBoardElement
+from examples.methods_chain.dsl_board.semantic_model.swimlane import SwimLane
 
 
 class Cut(CompositeBoardElement):

@@ -1,7 +1,7 @@
 import json
 
-from dsl_board.semantic_model.base import CompositeBoardElement
-from dsl_board.semantic_model.cut import Cut
+from examples.methods_chain.dsl_board.semantic_model.base import CompositeBoardElement
+from examples.methods_chain.dsl_board.semantic_model.cut import Cut
 
 
 class Board(CompositeBoardElement):

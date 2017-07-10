@@ -1,4 +1,4 @@
-from dsl_board.registry.registry import from_registry
+from examples.methods_chain.dsl_board.registry.registry import from_registry
 
 
 class BoardElementSerializer:

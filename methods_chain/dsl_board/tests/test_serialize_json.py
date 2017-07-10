@@ -1,9 +1,9 @@
 import unittest
 
-from dsl_board.semantic_model.board import Board
-from dsl_board.semantic_model.card import Card
-from dsl_board.semantic_model.cut import Cut
-from dsl_board.semantic_model.swimlane import SwimLane
+from examples.methods_chain.dsl_board.semantic_model.board import Board
+from examples.methods_chain.dsl_board.semantic_model.card import Card
+from examples.methods_chain.dsl_board.semantic_model.cut import Cut
+from examples.methods_chain.dsl_board.semantic_model.swimlane import SwimLane
 
 
 class TestBoardSerializeDeserialize(unittest.TestCase):
